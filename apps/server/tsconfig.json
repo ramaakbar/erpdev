@@ -1,0 +1,11 @@
+{
+  "extends": "@erpdev/config/tsconfig-base.json",
+  "compilerOptions": {
+    "types": ["bun-types"],
+    "baseUrl": ".",
+    "paths": {
+      "server/*": ["src/*"]
+    }
+  },
+  "include": ["**/*.ts"]
+}

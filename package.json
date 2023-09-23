@@ -1,21 +1,40 @@
 {
-  "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
-  },
-  "devDependencies": {
-    "eslint": "^8.48.0",
-    "prettier": "^3.0.3",
-    "tsconfig": "*",
-    "turbo": "latest"
-  },
   "name": "erp-dev",
-  "packageManager": "bun@1.0.1",
+  "private": true,
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+    "dev": "turbo run dev",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md}\"",
+    "format:write": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint": "turbo run lint",
+    "prepare": "husky install",
+    "test": "turbo run test"
+  },
+  "lint-staged": {
+    "apps/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "packages/ui/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,scss,md,webmanifest}": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "config": "*",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "turbo": "latest"
+  },
+  "packageManager": "bun@1.0.1"
 }

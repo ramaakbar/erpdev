@@ -1,3 +1,1 @@
-module.exports = {
-  extends: ["custom/next"],
-};
+module.exports = require("@erpdev/config/eslint-react");

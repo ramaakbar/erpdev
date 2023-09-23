@@ -1,21 +1,26 @@
 {
-  "name": "ui",
+  "name": "@erpdev/ui",
   "version": "0.0.0",
+  "license": "MIT",
   "main": "./index.tsx",
   "types": "./index.tsx",
-  "license": "MIT",
   "scripts": {
-    "lint": "eslint .",
-    "generate:component": "turbo gen react-component"
+    "generate:component": "turbo gen react-component",
+    "lint": "bunx eslint components"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.279.0",
+    "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {
-    "@turbo/gen": "^1.10.12",
-    "@types/node": "^20.5.2",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "eslint-config-custom": "*",
+    "@erpdev/config": "*",
+    "@turbo/gen": "^1.10.14",
+    "@types/node": "^20.6.2",
+    "@types/react": "^18.2.22",
+    "@types/react-dom": "^18.2.7",
     "react": "^18.2.0",
-    "tsconfig": "*",
-    "typescript": "^4.5.2"
+    "typescript": "^5.2.2"
   }
 }
